@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LOL 전적 검색</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>LOL 전적 검색</h1>
+      <p class="subtitle">리그 오브 레전드 전적을 검색하세요</p>
+    </header>
+
+    <div class="search-box">
+      <input type="text" id="searchInput" placeholder="소환사명#태그 (예: Hide on bush#KR1)" />
+      <button id="searchBtn">검색</button>
+    </div>
+
+    <div id="error" class="error hidden"></div>
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span>검색 중...</span>
+    </div>
+
+    <div id="profile" class="profile hidden">
+      <div class="profile-header">
+        <img id="profileIcon" class="profile-icon" src="" alt="프로필 아이콘" />
+        <div class="profile-info">
+          <h2 id="summonerName"></h2>
+          <span id="summonerLevel" class="level"></span>
+        </div>
+      </div>
+      <div id="rankInfo" class="rank-cards"></div>
+    </div>
+
+    <div id="matchList" class="match-list hidden">
+      <h3>최근 전적</h3>
+      <div id="matchSummary" class="match-summary"></div>
+      <div id="matches"></div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

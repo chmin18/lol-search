@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm install:*)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(PUUID=\"WEAXMD--ogDvLIxZoyxB9j4RekL6F9aOjc4fvPlXJnHkLnKEPQecvdU4vGhQF6OvVmcPdNJTJ0g0Sw\")",
+      "Bash(curl -s \"http://localhost:3000/api/summoner/$PUUID\")",
+      "Bash(curl -s \"http://localhost:3000/api/matches/$PUUID?count=1\")",
+      "Bash(curl -s http://localhost:3000/api/match/KR_8149818448)",
+      "Bash(gh auth:*)",
+      "Bash(git --version)"
+    ]
+  }
+}

@@ -1,0 +1,508 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #0a0e14;
+  color: #c5c8cc;
+  min-height: 100vh;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  background: linear-gradient(135deg, #c89b3c, #f0e6d2);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+}
+
+.subtitle {
+  color: #5b5e63;
+  font-size: 0.95rem;
+}
+
+/* 검색 */
+.search-box {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.search-box input {
+  flex: 1;
+  padding: 14px 18px;
+  border: 2px solid #1e2328;
+  border-radius: 8px;
+  background: #13171d;
+  color: #f0e6d2;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.search-box input:focus {
+  border-color: #c89b3c;
+}
+
+.search-box input::placeholder {
+  color: #5b5e63;
+}
+
+.search-box button {
+  padding: 14px 28px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #c89b3c, #a67c25);
+  color: #0a0e14;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.1s, opacity 0.2s;
+}
+
+.search-box button:hover {
+  opacity: 0.9;
+}
+
+.search-box button:active {
+  transform: scale(0.97);
+}
+
+/* 로딩 */
+.loading {
+  text-align: center;
+  padding: 40px;
+  color: #c89b3c;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+}
+
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid #1e2328;
+  border-top-color: #c89b3c;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* 에러 */
+.error {
+  background: #2a1215;
+  border: 1px solid #5c2b2e;
+  color: #f5a0a0;
+  padding: 12px 16px;
+  border-radius: 8px;
+  text-align: center;
+  margin-bottom: 16px;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* 프로필 */
+.profile {
+  background: #13171d;
+  border: 1px solid #1e2328;
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 24px;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.profile-icon {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid #c89b3c;
+}
+
+.profile-info h2 {
+  color: #f0e6d2;
+  font-size: 1.5rem;
+}
+
+.level {
+  background: #1e2328;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 0.85rem;
+  color: #c89b3c;
+}
+
+/* 랭크 */
+.rank-cards {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.rank-card {
+  flex: 1;
+  min-width: 200px;
+  background: #1a1f26;
+  border: 1px solid #1e2328;
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rank-card .rank-icon {
+  width: 56px;
+  height: 56px;
+}
+
+.rank-card .rank-type {
+  font-size: 0.8rem;
+  color: #5b5e63;
+  text-transform: uppercase;
+}
+
+.rank-card .rank-tier {
+  color: #f0e6d2;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.rank-card .rank-lp {
+  font-size: 0.85rem;
+  color: #c89b3c;
+}
+
+.rank-card .rank-winrate {
+  font-size: 0.8rem;
+  color: #5b5e63;
+}
+
+/* 매치 리스트 */
+.match-list h3 {
+  color: #f0e6d2;
+  margin-bottom: 12px;
+  font-size: 1.1rem;
+}
+
+.match-summary {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding: 12px 16px;
+  background: #13171d;
+  border-radius: 8px;
+  border: 1px solid #1e2328;
+  font-size: 0.9rem;
+}
+
+.match-summary .wins {
+  color: #5383e8;
+  font-weight: 700;
+}
+
+.match-summary .losses {
+  color: #e84057;
+  font-weight: 700;
+}
+
+.match-summary .winrate {
+  color: #c89b3c;
+  font-weight: 700;
+}
+
+/* 매치 카드 */
+.match-card-wrapper {
+  margin-bottom: 8px;
+}
+
+.match-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid;
+  transition: background 0.15s;
+  cursor: pointer;
+}
+
+.match-card:hover {
+  filter: brightness(1.1);
+}
+
+.match-card.win {
+  background: #13202e;
+  border-left-color: #5383e8;
+}
+
+.match-card.loss {
+  background: #241418;
+  border-left-color: #e84057;
+}
+
+.match-card.remake {
+  background: #1a1a1a;
+  border-left-color: #5b5e63;
+}
+
+.match-champ {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.match-champ img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.match-champ .champ-level {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: #1e2328;
+  color: #c5c8cc;
+  font-size: 0.7rem;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+}
+
+.match-spells {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.match-spells img {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+}
+
+.match-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.match-info .result {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.match-card.win .result { color: #5383e8; }
+.match-card.loss .result { color: #e84057; }
+.match-card.remake .result { color: #5b5e63; }
+
+.match-info .game-type {
+  font-size: 0.75rem;
+  color: #5b5e63;
+}
+
+.match-info .duration {
+  font-size: 0.75rem;
+  color: #5b5e63;
+}
+
+.match-kda {
+  text-align: center;
+  min-width: 100px;
+  flex-shrink: 0;
+}
+
+.match-kda .kda-text {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #f0e6d2;
+}
+
+.match-kda .kda-ratio {
+  font-size: 0.8rem;
+  color: #5b5e63;
+}
+
+.match-kda .kda-ratio.perfect { color: #c89b3c; }
+.match-kda .kda-ratio.great { color: #5383e8; }
+.match-kda .kda-ratio.good { color: #00bba3; }
+
+.match-stats {
+  text-align: right;
+  min-width: 80px;
+  flex-shrink: 0;
+}
+
+.match-stats .cs {
+  font-size: 0.85rem;
+  color: #c5c8cc;
+}
+
+.match-stats .vision {
+  font-size: 0.75rem;
+  color: #5b5e63;
+}
+
+.match-stats .time-ago {
+  font-size: 0.7rem;
+  color: #5b5e63;
+  margin-top: 2px;
+}
+
+.match-items {
+  display: flex;
+  gap: 2px;
+  flex-shrink: 0;
+}
+
+.match-items img {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  background: #1e2328;
+}
+
+/* 토글 화살표 */
+.match-toggle {
+  flex-shrink: 0;
+  color: #5b5e63;
+  font-size: 0.8rem;
+  margin-left: 4px;
+}
+
+/* 매치 상세 - 10명 참가자 */
+.match-detail {
+  background: #111419;
+  border: 1px solid #1e2328;
+  border-top: none;
+  border-radius: 0 0 8px 8px;
+  padding: 12px;
+  display: flex;
+  gap: 12px;
+}
+
+.team-block {
+  flex: 1;
+}
+
+.team-header {
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 8px;
+  border-radius: 4px;
+  margin-bottom: 6px;
+}
+
+.team-header.team-blue { color: #5383e8; }
+.team-header.team-red { color: #e84057; }
+.team-header.team-win { background: #13202e; }
+.team-header.team-loss { background: #241418; }
+
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: 0.78rem;
+}
+
+.player-row:hover {
+  background: #1a1f26;
+}
+
+.player-me {
+  background: #1a1f26;
+  border: 1px solid #c89b3c44;
+}
+
+.player-champ img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.player-name {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: #c5c8cc;
+}
+
+.player-me .player-name {
+  color: #f0e6d2;
+  font-weight: 700;
+}
+
+.player-kda {
+  min-width: 70px;
+  text-align: center;
+  color: #c5c8cc;
+}
+
+.player-kda-ratio {
+  color: #5b5e63;
+  font-size: 0.7rem;
+}
+
+.player-cs {
+  min-width: 45px;
+  text-align: right;
+  color: #5b5e63;
+  font-size: 0.75rem;
+}
+
+.player-damage {
+  min-width: 40px;
+  text-align: right;
+  color: #e84057;
+  font-size: 0.75rem;
+}
+
+/* 반응형 */
+@media (max-width: 640px) {
+  .match-card {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .match-items {
+    order: 10;
+    width: 100%;
+  }
+
+  .rank-card {
+    min-width: 100%;
+  }
+}

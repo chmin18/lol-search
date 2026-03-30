@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: lol-search
+    runtime: python
+    buildCommand: echo "No build needed"
+    startCommand: python3 server.py
+    envVars:
+      - key: RIOT_API_KEY
+        sync: false
